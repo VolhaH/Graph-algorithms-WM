@@ -1,0 +1,545 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     25270,        537]
+NotebookOptionsPosition[     24724,        519]
+NotebookOutlinePosition[     25091,        535]
+CellTagsIndexPosition[     25048,        532]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7595847212982388`*^9, 
+  3.7595847212982388`*^9}},ExpressionUUID->"37601dc1-67a5-4f51-b4a7-\
+d02699117187"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"e", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<Minsk\>\"", "\[DirectedEdge]", "\"\<Grodno\>\""}], ",", 
+     RowBox[{"\"\<Grodno\>\"", "\[DirectedEdge]", "\"\<Minsk\>\""}], ",", 
+     RowBox[{"\"\<Minsk\>\"", "\[DirectedEdge]", "\"\<Gomel\>\""}], ",", 
+     RowBox[{"\"\<Gomel\>\"", "\[DirectedEdge]", "\"\<Minsk\>\""}], ",", 
+     RowBox[{"\"\<Mogilev\>\"", "\[DirectedEdge]", "\"\<Minsk\>\""}], ",", 
+     RowBox[{"\"\<Minsk\>\"", "\[DirectedEdge]", "\"\<Mogilev\>\""}], ",", 
+     RowBox[{"\"\<Minsk\>\"", "\[DirectedEdge]", "\"\<Brest\>\""}], ",", 
+     RowBox[{"\"\<Brest\>\"", "\[DirectedEdge]", "\"\<Minsk\>\""}], ",", 
+     RowBox[{"\"\<Minsk\>\"", "\[DirectedEdge]", "\"\<Vitebsk\>\""}], ",", 
+     RowBox[{"\"\<Brest\>\"", "\[DirectedEdge]", "\"\<Gomel\>\""}], ",", 
+     RowBox[{"\"\<Gomel\>\"", "\[DirectedEdge]", "\"\<Brest\>\""}], ",", 
+     RowBox[{"\"\<Vitebsk\>\"", "\[DirectedEdge]", "\"\<Gomel\>\""}], ",", 
+     RowBox[{"\"\<Gomel\>\"", "\[DirectedEdge]", "\"\<Mogilev\>\""}], ",", 
+     RowBox[{"\"\<Mogilev\>\"", "\[DirectedEdge]", "\"\<Vitebsk\>\""}]}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"g", "=", 
+  RowBox[{"Graph", "[", 
+   RowBox[{"e", ",", 
+    RowBox[{"EdgeWeight", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+      "280", ",", "281", ",", "311", ",", "312", ",", "198", ",", "199", ",", 
+       "344", ",", "345", ",", "292", ",", "527", ",", "528", ",", "331", ",",
+        "175", ",", "162"}], "}"}]}], ",", 
+    RowBox[{"VertexLabels", "\[Rule]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"With", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"j", "=", 
+           RowBox[{
+            RowBox[{"VertexList", "[", "%", "]"}], "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+         RowBox[{"j", "\[Rule]", 
+          RowBox[{"Placed", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"j", "|", 
+              RowBox[{"Cases", "[", 
+               RowBox[{
+                RowBox[{"IncidenceList", "[", 
+                 RowBox[{"%", ",", "j"}], "]"}], ",", " ", 
+                RowBox[{
+                 RowBox[{"j", "\[DirectedEdge]", "a_"}], "\[Rule]", "a"}]}], 
+               "]"}]}], "}"}], ",", "Tooltip"}], "]"}]}]}], "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"VertexCount", "[", "%", "]"}]}], "}"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"EdgeLabels", "\[Rule]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"With", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"j", "=", 
+           RowBox[{
+            RowBox[{"EdgeList", "[", "%", "]"}], "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+         RowBox[{"j", "\[Rule]", 
+          RowBox[{"Placed", "[", 
+           RowBox[{
+            RowBox[{"j", "|", 
+             RowBox[{"PropertyValue", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"g", ",", "j"}], "}"}], ",", "EdgeWeight"}], "]"}]}], 
+            ",", "Tooltip"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"EdgeCount", "[", "%", "]"}]}], "}"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"GraphLayout", "->", "\"\<BalloonEmbedding\>\""}], ",", 
+    RowBox[{"VertexSize", "\[Rule]", "Medium"}], ",", 
+    RowBox[{"VertexStyle", "\[Rule]", "White"}], ",", 
+    RowBox[{"EdgeStyle", "\[Rule]", "Dashed"}], ",", "  ", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", 
+      RowBox[{
+       RowBox[{"EdgeForm", "[", "Purple", "]"}], ",", " ", 
+       RowBox[{"EdgeForm", "[", "Thick", "]"}]}], "]"}]}]}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7778910768687325`*^9, 3.777891152384647*^9}, {
+   3.777891206398248*^9, 3.7778913191049356`*^9}, {3.779122552636656*^9, 
+   3.779122595586958*^9}, {3.7791227053834605`*^9, 3.7791227201998863`*^9}, {
+   3.779122797617097*^9, 3.7791228744307823`*^9}, {3.7791229093224916`*^9, 
+   3.7791230541373415`*^9}, {3.779123147037843*^9, 3.779123202620887*^9}, {
+   3.7791232739392266`*^9, 3.7791232743102283`*^9}, {3.779123394011655*^9, 
+   3.779123397372635*^9}, {3.77912345823764*^9, 3.779123461519863*^9}, {
+   3.779123526356526*^9, 3.7791235319705224`*^9}, {3.7791236496369486`*^9, 
+   3.7791236756913333`*^9}, {3.7791237268226023`*^9, 3.779123729901374*^9}, {
+   3.779124062584672*^9, 3.779124075087205*^9}, {3.7791241181947165`*^9, 
+   3.779124216694274*^9}, {3.7791242744049416`*^9, 3.7791243136548195`*^9}, {
+   3.779124360527507*^9, 3.7791243882085247`*^9}, {3.7791244545242157`*^9, 
+   3.7791244721600666`*^9}, {3.779124558382738*^9, 3.779124629082768*^9}, {
+   3.7791246749302015`*^9, 3.7791246997109094`*^9}, {3.779124734514865*^9, 
+   3.7791249895275073`*^9}, {3.779126582659859*^9, 3.7791265835136228`*^9}, {
+   3.7791266475414505`*^9, 3.779126911161021*^9}, {3.7791269517833858`*^9, 
+   3.7791269787573085`*^9}, {3.7791298960747595`*^9, 
+   3.7791299136261387`*^9}, {3.779129959851357*^9, 3.7791300020897284`*^9}, {
+   3.779130087578019*^9, 3.7791301030112443`*^9}, {3.7791311657334437`*^9, 
+   3.7791313909916315`*^9}, {3.7791314314858828`*^9, 
+   3.7791314946646476`*^9}, {3.7791315479082727`*^9, 3.779131600109103*^9}, {
+   3.77913166527962*^9, 3.7791318558970222`*^9}, {3.7791322171731973`*^9, 
+   3.779132239829642*^9}, {3.779132307358055*^9, 3.77913233674753*^9}, {
+   3.779132377802765*^9, 3.779132381484929*^9}, {3.779132478982231*^9, 
+   3.779132488107864*^9}, {3.7791325850616465`*^9, 3.7791326926959214`*^9}, {
+   3.779132722966997*^9, 3.779132730156742*^9}, {3.7791327782940793`*^9, 
+   3.7791329120824327`*^9}, {3.7791332270159264`*^9, 3.779133263657969*^9}, {
+   3.7791335600679755`*^9, 3.7791335664080877`*^9}, {3.779133709487203*^9, 
+   3.7791337723401375`*^9}, {3.779133818609438*^9, 3.7791340007465615`*^9}, {
+   3.779134033411292*^9, 3.7791340388128242`*^9}, {3.77913409797165*^9, 
+   3.779134113793345*^9}, {3.779134183769266*^9, 3.779134297074538*^9}, {
+   3.779134434157096*^9, 3.779134463772873*^9}, {3.77913458362147*^9, 
+   3.7791346417910004`*^9}, {3.77913533300609*^9, 3.7791353778072634`*^9}, {
+   3.779135409051774*^9, 3.7791355301290803`*^9}, {3.779135623764762*^9, 
+   3.779135700547477*^9}, {3.7791357354002733`*^9, 3.779135776013729*^9}, {
+   3.7791358153136287`*^9, 3.779135842261585*^9}, {3.7791359468421736`*^9, 
+   3.7791359659860506`*^9}, {3.7791362435435324`*^9, 
+   3.7791362830290155`*^9}, {3.7791363490963483`*^9, 3.779136390997329*^9}, {
+   3.779284924790844*^9, 3.779284942390766*^9}, {3.7792849796840057`*^9, 
+   3.7792850160063562`*^9}, {3.7792850659891644`*^9, 
+   3.7792851456683116`*^9}, {3.7792851765676203`*^9, 
+   3.7792851822254868`*^9}, {3.77928524178726*^9, 3.779285312194476*^9}, 
+   3.7792853523231325`*^9, {3.779290960591019*^9, 3.7792910044366536`*^9}, {
+   3.7792911009898357`*^9, 3.779291160187913*^9}, {3.779291201727563*^9, 
+   3.7792912897231755`*^9}, {3.779291601357052*^9, 3.7792917449908395`*^9}, {
+   3.779291945859619*^9, 3.779291955254489*^9}, {3.779291987059412*^9, 
+   3.779292035073015*^9}, {3.7792920765530205`*^9, 3.7792923842084637`*^9}, {
+   3.779292470936474*^9, 3.7792924868305387`*^9}, {3.779292663958863*^9, 
+   3.7792928762062206`*^9}, {3.7792929646528044`*^9, 
+   3.7792929854751053`*^9}, {3.779293337541483*^9, 3.779293361587164*^9}, {
+   3.779295270609973*^9, 3.7792952710488343`*^9}, {3.779295452206213*^9, 
+   3.7792955532208962`*^9}, {3.7792956424342527`*^9, 
+   3.7792956451848965`*^9}, {3.7792958556306067`*^9, 
+   3.7792958780247035`*^9}, {3.779296115788907*^9, 3.7792961623753304`*^9}, {
+   3.779296199079152*^9, 3.779296201563503*^9}, {3.779296235841811*^9, 
+   3.779296256260192*^9}, {3.779296630168522*^9, 3.779296702494924*^9}, {
+   3.7792967584462605`*^9, 3.7792967613165827`*^9}, {3.7792969398629785`*^9, 
+   3.7792969766755066`*^9}, {3.7792970547845693`*^9, 3.779297065959677*^9}, {
+   3.779297114933673*^9, 3.779297236517042*^9}, {3.779297312935111*^9, 
+   3.7792973916535397`*^9}, {3.7792974997943134`*^9, 3.779297521530171*^9}, {
+   3.7792975935804377`*^9, 3.7792975987665653`*^9}, {3.7792976300927525`*^9, 
+   3.779297668697486*^9}, {3.779297732805997*^9, 3.7792977757271857`*^9}, {
+   3.779297911951792*^9, 3.779298040166828*^9}, 3.7792980811312475`*^9, {
+   3.779298191319503*^9, 3.779298266971136*^9}, {3.7792983251914*^9, 
+   3.7792983921034136`*^9}, {3.7792985702854156`*^9, 
+   3.7792986082189817`*^9}, {3.779298645034466*^9, 3.7792986830129104`*^9}, {
+   3.779298757322359*^9, 3.7792987821329536`*^9}, {3.779298902759287*^9, 
+   3.779298943188176*^9}, {3.7792989923493896`*^9, 3.7792992033878384`*^9}, {
+   3.779299236736635*^9, 3.77929926693186*^9}, {3.7792993111605535`*^9, 
+   3.77929931679947*^9}, {3.779299400380677*^9, 3.77929949415806*^9}, {
+   3.7792997661135902`*^9, 3.779299814746501*^9}, {3.7793005499337606`*^9, 
+   3.7793005713884077`*^9}, {3.7793009700864944`*^9, 3.779301009702213*^9}, {
+   3.779301087181961*^9, 3.779301375698197*^9}, {3.7793014087388144`*^9, 
+   3.7793014249973593`*^9}, {3.7793014788193903`*^9, 
+   3.7793015778295355`*^9}, {3.7793016574774904`*^9, 
+   3.7793017010558805`*^9}, {3.779301735154667*^9, 3.7793018025225067`*^9}, 
+   3.779301852821805*^9, {3.7793019415773883`*^9, 3.779301964977793*^9}, {
+   3.779302008452504*^9, 3.779302107185398*^9}, {3.7793021476432095`*^9, 
+   3.7793022446686354`*^9}, {3.7793022989314895`*^9, 3.779302322220194*^9}, {
+   3.779302511039113*^9, 3.779302570414284*^9}, {3.7793026263775873`*^9, 
+   3.7793026415260677`*^9}, {3.779302676623184*^9, 3.7793026788711686`*^9}, {
+   3.7793027499380727`*^9, 3.779302751864951*^9}, {3.7793027828659897`*^9, 
+   3.779302797731227*^9}, {3.7793030343007874`*^9, 3.7793030641110845`*^9}, {
+   3.7793030956506834`*^9, 3.7793031646431665`*^9}, {3.779303352381941*^9, 
+   3.779303408686327*^9}, {3.779303448652421*^9, 3.7793035246710773`*^9}, {
+   3.779303575522052*^9, 3.7793036013090754`*^9}, {3.779303705806547*^9, 
+   3.779303717036507*^9}, {3.7793043893997173`*^9, 3.7793044143120775`*^9}, {
+   3.7793044595525475`*^9, 3.7793045030272517`*^9}, {3.779304533999403*^9, 
+   3.779304613525708*^9}, {3.7793047858002677`*^9, 3.7793048231962347`*^9}, {
+   3.7793048593465366`*^9, 3.779304899208906*^9}, {3.779304941051978*^9, 
+   3.779304998755624*^9}, {3.779305047615926*^9, 3.7793051413602*^9}, {
+   3.7793054724371057`*^9, 3.7793055597485504`*^9}, {3.7793055934523935`*^9, 
+   3.7793056805992823`*^9}, {3.7793060042601843`*^9, 3.779306084706994*^9}, {
+   3.779306159248597*^9, 3.7793061816097827`*^9}, {3.7793062421823883`*^9, 
+   3.7793063574350543`*^9}, {3.779306429310791*^9, 3.7793064458047047`*^9}, {
+   3.7793064968551483`*^9, 3.77930666147066*^9}, {3.7793066942709208`*^9, 
+   3.779306694279895*^9}, {3.7793068297733364`*^9, 3.779306830976442*^9}, {
+   3.7793075633384514`*^9, 3.7793075673813944`*^9}, 3.779307721133107*^9, 
+   3.779307777605339*^9, {3.7793108078749933`*^9, 3.7793108160451717`*^9}, {
+   3.7793108931409106`*^9, 3.779310893863973*^9}, {3.7793109276378713`*^9, 
+   3.7793110926115756`*^9}, {3.779311141247475*^9, 3.7793112994572754`*^9}, {
+   3.779311358782585*^9, 3.779311449204743*^9}},
+ CellLabel->
+  "In[186]:=",ExpressionUUID->"aa4f8c58-bb12-4ac8-859a-ea94c853e3ae"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "Minsk", "Grodno", "Gomel", "Mogilev", "Brest", "Vitebsk"}, {{{1, 2}, {
+       2, 1}, {1, 3}, {3, 1}, {4, 1}, {1, 4}, {1, 5}, {5, 1}, {1, 6}, {5, 
+       3}, {3, 5}, {6, 3}, {3, 4}, {4, 6}}, Null}, {BaseStyle -> Directive[
+         EdgeForm[
+          RGBColor[0.5, 0, 0.5]], 
+         EdgeForm[
+          Thickness[Large]]], 
+       EdgeLabels -> {DirectedEdge["Minsk", "Vitebsk"] -> Placed[
+           Alternatives[
+            DirectedEdge["Minsk", "Vitebsk"], 292], Tooltip], 
+         DirectedEdge["Vitebsk", "Gomel"] -> Placed[
+           Alternatives[
+            DirectedEdge["Vitebsk", "Gomel"], 331], Tooltip], 
+         DirectedEdge["Gomel", "Brest"] -> Placed[
+           Alternatives[
+            DirectedEdge["Gomel", "Brest"], 528], Tooltip], 
+         DirectedEdge["Minsk", "Grodno"] -> Placed[
+           Alternatives[
+            DirectedEdge["Minsk", "Grodno"], 280], Tooltip], 
+         DirectedEdge["Grodno", "Minsk"] -> Placed[
+           Alternatives[
+            DirectedEdge["Grodno", "Minsk"], 281], Tooltip], 
+         DirectedEdge["Minsk", "Gomel"] -> Placed[
+           Alternatives[
+            DirectedEdge["Minsk", "Gomel"], 311], Tooltip], 
+         DirectedEdge["Minsk", "Mogilev"] -> Placed[
+           Alternatives[
+            DirectedEdge["Minsk", "Mogilev"], 199], Tooltip], 
+         DirectedEdge["Brest", "Minsk"] -> Placed[
+           Alternatives[
+            DirectedEdge["Brest", "Minsk"], 345], Tooltip], 
+         DirectedEdge["Gomel", "Mogilev"] -> Placed[
+           Alternatives[
+            DirectedEdge["Gomel", "Mogilev"], 175], Tooltip], 
+         DirectedEdge["Mogilev", "Minsk"] -> Placed[
+           Alternatives[
+            DirectedEdge["Mogilev", "Minsk"], 198], Tooltip], 
+         DirectedEdge["Brest", "Gomel"] -> Placed[
+           Alternatives[
+            DirectedEdge["Brest", "Gomel"], 527], Tooltip], 
+         DirectedEdge["Mogilev", "Vitebsk"] -> Placed[
+           Alternatives[
+            DirectedEdge["Mogilev", "Vitebsk"], 162], Tooltip], 
+         DirectedEdge["Minsk", "Brest"] -> Placed[
+           Alternatives[
+            DirectedEdge["Minsk", "Brest"], 344], Tooltip], 
+         DirectedEdge["Gomel", "Minsk"] -> Placed[
+           Alternatives[
+            DirectedEdge["Gomel", "Minsk"], 312], Tooltip]}, EdgeStyle -> {
+         Dashing[{Small, Small}]}, 
+       EdgeWeight -> {280, 281, 311, 312, 198, 199, 344, 345, 292, 527, 528, 
+        331, 175, 162}, GraphLayout -> "BalloonEmbedding", 
+       VertexLabels -> {"Gomel" -> Placed[{
+            Alternatives["Gomel", {"Minsk", "Brest", "Mogilev"}]}, Tooltip], 
+         "Mogilev" -> Placed[{
+            Alternatives["Mogilev", {"Minsk", "Vitebsk"}]}, Tooltip], "Minsk" -> 
+         Placed[{
+            Alternatives[
+            "Minsk", {"Grodno", "Gomel", "Mogilev", "Brest", "Vitebsk"}]}, 
+           Tooltip], "Grodno" -> Placed[{
+            Alternatives["Grodno", {"Minsk"}]}, Tooltip], "Brest" -> Placed[{
+            Alternatives["Brest", {"Minsk", "Gomel"}]}, Tooltip], "Vitebsk" -> 
+         Placed[{
+            Alternatives["Vitebsk", {"Gomel"}]}, Tooltip]}, 
+       VertexSize -> {Medium}, VertexStyle -> {
+         GrayLevel[1]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Dashing[{Small, Small}], Arrowheads[
+        Medium], EdgeForm[{RGBColor[0.5, 0, 0.5], Thickness[Large]}], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0.710611823731593, 0.8353743001881777}, {
+           0.2704068460515841, 0.9766656163587196}, {0., 
+           1.3516640110326295`}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Minsk\"", "\[DirectedEdge]", "\"Grodno\""}], "|", 
+            "280"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Minsk", "Grodno"], 280], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0.710611823731593, 0.8353743001881777}, {
+           0.98369617976107, 0.4623212303825469}, {0.9820413875895124, 0.}}], 
+           0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Minsk\"", "\[DirectedEdge]", "\"Gomel\""}], "|", 
+            "311"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Minsk", "Gomel"], 311], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0.710611823731593, 0.8353743001881777}, {
+           1.1497940836052631`, 0.9798132181151031}, {1.5889763434789403`, 
+           0.8353743001881777}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Minsk\"", "\[DirectedEdge]", "\"Mogilev\""}], "|", 
+            "199"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Minsk", "Mogilev"], 199], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0.710611823731593, 0.8353743001881777}, {
+           0.4402049776800145, 0.4603759055143113}, {0., 
+           0.3190845893437261}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Minsk\"", "\[DirectedEdge]", "\"Brest\""}], "|", 
+            "344"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Minsk", "Brest"], 344], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[{{0.710611823731593, 0.8353743001881777}, {
+           0.9820413875895124, 1.6707486003763554`}}, 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Minsk\"", "\[DirectedEdge]", "\"Vitebsk\""}], "|", 
+            "292"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Minsk", "Vitebsk"], 292], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0., 1.3516640110326295`}, {
+           0.4402049776800127, 1.2103726948615805`}, {0.710611823731593, 
+           0.8353743001881777}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Grodno\"", "\[DirectedEdge]", "\"Minsk\""}], "|", 
+            "281"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Grodno", "Minsk"], 281], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0.9820413875895124, 0.}, {
+           0.7089570315600328, 0.37305306980557346`}, {0.710611823731593, 
+           0.8353743001881777}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Gomel\"", "\[DirectedEdge]", "\"Minsk\""}], "|", 
+            "312"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Gomel", "Minsk"], 312], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[{{0.9820413875895124, 0.}, {1.5889763434789403`, 
+           0.8353743001881777}}, 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Gomel\"", "\[DirectedEdge]", "\"Mogilev\""}], "|", 
+            "175"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Gomel", "Mogilev"], 175], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0.9820413875895124, 0.}, {
+           0.43855018550845665`, -0.001945324868101043}, {0., 
+           0.3190845893437261}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Gomel\"", "\[DirectedEdge]", "\"Brest\""}], "|", 
+            "528"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Gomel", "Brest"], 528], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{1.5889763434789403`, 
+           0.8353743001881777}, {1.1497940836052702`, 0.6909353822619893}, {
+           0.710611823731593, 0.8353743001881777}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Mogilev\"", "\[DirectedEdge]", "\"Minsk\""}], "|", 
+            "198"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Mogilev", "Minsk"], 198], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[{{1.5889763434789403`, 0.8353743001881777}, {
+           0.9820413875895124, 1.6707486003763554`}}, 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Mogilev\"", "\[DirectedEdge]", "\"Vitebsk\""}], "|", 
+            "162"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Mogilev", "Vitebsk"], 162], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0., 0.3190845893437261}, {
+           0.27040684605158044`, 0.6940829840176068}, {0.710611823731593, 
+           0.8353743001881777}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Brest\"", "\[DirectedEdge]", "\"Minsk\""}], "|", 
+            "345"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Brest", "Minsk"], 345], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[BezierCurveBox[{{0., 0.3190845893437261}, {
+           0.5434912020810558, 0.3210299142117872}, {0.9820413875895124, 
+           0.}}], 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Brest\"", "\[DirectedEdge]", "\"Gomel\""}], "|", 
+            "527"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Brest", "Gomel"], 527], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          ArrowBox[{{0.9820413875895124, 1.6707486003763554`}, {
+           0.9820413875895124, 0.}}, 0.08783645197473473],
+          RowBox[{
+            RowBox[{"\"Vitebsk\"", "\[DirectedEdge]", "\"Gomel\""}], "|", 
+            "331"}]],
+         Annotation[#, 
+          Alternatives[
+           DirectedEdge["Vitebsk", "Gomel"], 331], "Tooltip"]& ]}, 
+       {GrayLevel[1], EdgeForm[{RGBColor[0.5, 0, 0.5], Opacity[0.7], 
+        Thickness[Large]}], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.710611823731593, 0.8353743001881777}, 
+           0.08783645197473473],
+          RowBox[{"\"Minsk\"", "|", 
+            RowBox[{"{", 
+              
+              RowBox[{"\"Grodno\"", ",", "\"Gomel\"", ",", "\"Mogilev\"", ",",
+                 "\"Brest\"", ",", "\"Vitebsk\""}], "}"}]}]],
+         Annotation[#, 
+          Alternatives[
+          "Minsk", {"Grodno", "Gomel", "Mogilev", "Brest", "Vitebsk"}], 
+          "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[DiskBox[{0., 1.3516640110326295}, 0.08783645197473473],
+          RowBox[{"\"Grodno\"", "|", 
+            RowBox[{"{", "\"Minsk\"", "}"}]}]],
+         Annotation[#, 
+          Alternatives["Grodno", {"Minsk"}], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[DiskBox[{0.9820413875895124, 0.}, 0.08783645197473473],
+          RowBox[{"\"Gomel\"", "|", 
+            RowBox[{"{", 
+              RowBox[{"\"Minsk\"", ",", "\"Brest\"", ",", "\"Mogilev\""}], 
+              "}"}]}]],
+         Annotation[#, 
+          Alternatives["Gomel", {"Minsk", "Brest", "Mogilev"}], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{1.5889763434789403, 0.8353743001881777}, 
+           0.08783645197473473],
+          RowBox[{"\"Mogilev\"", "|", 
+            RowBox[{"{", 
+              RowBox[{"\"Minsk\"", ",", "\"Vitebsk\""}], "}"}]}]],
+         Annotation[#, 
+          Alternatives["Mogilev", {"Minsk", "Vitebsk"}], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[DiskBox[{0., 0.3190845893437261}, 0.08783645197473473],
+          RowBox[{"\"Brest\"", "|", 
+            RowBox[{"{", 
+              RowBox[{"\"Minsk\"", ",", "\"Gomel\""}], "}"}]}]],
+         Annotation[#, 
+          Alternatives["Brest", {"Minsk", "Gomel"}], "Tooltip"]& ], 
+        TagBox[
+         TooltipBox[
+          DiskBox[{0.9820413875895124, 1.6707486003763554}, 
+           0.08783645197473473],
+          RowBox[{"\"Vitebsk\"", "|", 
+            RowBox[{"{", "\"Gomel\"", "}"}]}]],
+         Annotation[#, 
+          Alternatives["Vitebsk", {"Gomel"}], "Tooltip"]& ]}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  BaseStyle->{
+    Directive[
+     EdgeForm[
+      RGBColor[0.5, 0, 0.5]], 
+     EdgeForm[
+      Thickness[Large]]]},
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{
+  3.779310762391531*^9, {3.7793109857444363`*^9, 3.7793110088865333`*^9}, {
+   3.779311153315194*^9, 3.779311180441633*^9}, 3.779311212159788*^9, {
+   3.779311282952424*^9, 3.7793113003219614`*^9}, 3.7793113722575364`*^9, {
+   3.7793114204087343`*^9, 3.779311449770197*^9}, 3.7797051715347147`*^9, 
+   3.77970530918081*^9},
+ CellLabel->
+  "Out[187]=",ExpressionUUID->"d1cec759-36fa-4248-b9d6-6b14561d1b7e"]
+}, Open  ]]
+},
+WindowSize->{1536, 781},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowStatusArea->None,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 156, 3, 28, "Input",ExpressionUUID->"37601dc1-67a5-4f51-b4a7-d02699117187"],
+Cell[CellGroupData[{
+Cell[739, 27, 11284, 191, 196, "Input",ExpressionUUID->"aa4f8c58-bb12-4ac8-859a-ea94c853e3ae"],
+Cell[12026, 220, 12682, 296, 425, "Output",ExpressionUUID->"d1cec759-36fa-4248-b9d6-6b14561d1b7e"]
+}, Open  ]]
+}
+]
+*)
+
